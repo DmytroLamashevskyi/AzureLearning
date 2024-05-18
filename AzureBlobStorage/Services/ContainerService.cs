@@ -54,7 +54,7 @@ namespace AzureBlobStorage.Services
                     {
                         blobToAdd += "(" + blobProperties.Value.Metadata["title"] + ")";
                     }
-                    blobContainers.Add("------" + blobToAddlob);
+                    blobContainers.Add("------" + blobToAdd);
                 }
                 blobContainers.Add("-----------------------------------------------------------------------------");
             }
