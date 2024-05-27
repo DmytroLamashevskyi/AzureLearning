@@ -40,7 +40,7 @@ namespace AzureBlobStorage.Services
             return blob.Uri.AbsoluteUri;
         }
 
-        public async Task<bool> UploadBlob(string name, IFormFile file, string containerName)
+        public async Task<bool> UploadBlob(string name, IFormFile file, string containerName, Models.BlobModel model)
         {
             var client = _blobClient.GetBlobContainerClient(containerName);
             var blobClient = client.GetBlobClient(name);
@@ -48,7 +48,15 @@ namespace AzureBlobStorage.Services
             {
                 ContentType = file.ContentType
             };
-            var result = await blobClient.UploadAsync(file.OpenReadStream(), httpheaders);
+
+            IDictionary<string,string> metadata = new Dictionary<string, string>
+            {
+                { "title", model.Title },
+                { "comment", model.Coment },
+
+            };
+
+            var result = await blobClient.UploadAsync(file.OpenReadStream(), httpheaders,metadata);
 
             return result != null;
         }
