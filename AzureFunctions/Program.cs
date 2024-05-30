@@ -1,4 +1,4 @@
-namespace AzureFunctions
+namespace AzureFunctionsWeb
 {
     public class Program
     {

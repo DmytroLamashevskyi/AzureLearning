@@ -1,8 +1,8 @@
-using AzureFunctions.Models;
+using AzureFunctionsWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace AzureFunctions.Controllers
+namespace AzureFunctionsWeb.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,7 +15,8 @@ namespace AzureFunctions.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var model = new SaleRequest();
+            return View(model);
         }
 
         public IActionResult Privacy()

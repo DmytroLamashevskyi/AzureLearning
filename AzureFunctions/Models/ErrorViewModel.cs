@@ -1,4 +1,4 @@
-namespace AzureFunctions.Models
+namespace AzureFunctionsWeb.Models
 {
     public class ErrorViewModel
     {
